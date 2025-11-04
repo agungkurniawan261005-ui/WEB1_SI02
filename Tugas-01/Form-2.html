@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration Form</title>
+    <style>
+        /* Pengaturan dasar untuk body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6; /* Latar belakang abu-abu muda */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Kontainer utama formulir */
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        /* Judul dan sub-judul */
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .form-container > p {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        /* Grup input (label + input) */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Baris yang menampung 2 kolom */
+        .form-row {
+            display: flex;
+            flex-wrap: wrap; /* Agar responsif di HP */
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Membuat grup di dalam baris mengisi ruang */
+        .form-row .form-group {
+            flex: 1; /* Setiap kolom ambil 1 bagian */
+            min-width: 200px; /* Lebar minimum sebelum wrap */
+            margin-bottom: 0; /* Hapus margin bawah ganda */
+        }
+
+        /* Label */
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #444;
+        }
+
+        /* Input, select */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Penting! */
+            font-size: 14px;
+        }
+        
+        /* Placeholder text */
+        ::placeholder {
+            color: #aaa;
+        }
+
+        /* Grup untuk T-Shirt Size */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 kolom */
+            gap: 10px 20px; /* Jarak vertikal & horizontal */
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 8px;
+            width: 16px;
+            height: 16px;
+        }
+
+        .checkbox-item label {
+            margin-bottom: 0;
+            font-weight: normal;
+        }
+        
+        /* Judul sub-seksi (Emergency Contact) */
+        h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        /* Grup untuk checkbox Terms */
+        .terms-group {
+            display: flex;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .terms-group input[type="checkbox"] {
+            margin-right: 10px;
+            width: 16px;
+            height: 16px;
+        }
+
+        .terms-group label {
+            font-weight: normal;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        /* Tombol Submit */
+        .submit-btn {
+            width: 100%;
+            background-color: #007bff; /* Biru cerah */
+            color: #ffffff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3; /* Biru lebih gelap */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Event Registration Form</h2>
+        <p>Please fill out the form below to register for the event.</p>
+
+        <form action="#" method="post">
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first_name" placeholder="John">
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last_name" placeholder="Doe">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john.doe@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country" name="country">
+                        <option value="" selected disabled>Select Country</option>
+                        <option value="indonesia">Indonesia</option>
+                        <option value="usa">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="australia">Australia</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="text" id="dob" name="dob" placeholder="MM/DD/YYYY">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>T-Shirt Size</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="small" name="size[]" value="small">
+                        <label for="small">Small</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="medium" name="size[]" value="medium">
+                        <label for="medium">Medium</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="large" name="size[]" value="large">
+                        <label for="large">Large</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="extra-large" name="size[]" value="extra-large">
+                        <label for="extra-large">Extra Large</label>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Emergency Contact Information</h3>
+
+            <div class="form-group">
+                <label for="emergency-name">Emergency Contact Name</label>
+                <input type="text" id="emergency-name" name="emergency_name" placeholder="Jane Smith">
+            </div>
+
+            <div class="form-group">
+                <label for="emergency-phone">Emergency Contact Phone Number</label>
+                <input type="tel" id="emergency-phone" name="emergency_phone" placeholder="+1 (555) 123-4567">
+            </div>
+
+            <div class="form-group terms-group">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the terms and conditions of this event.</label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Register Now</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
