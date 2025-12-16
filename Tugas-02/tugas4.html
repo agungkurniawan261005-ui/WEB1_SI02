@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas 4 jQuery Slideshow</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <div id="slideshow-container">
+        <img src="apel.jpg" width="400" height="300">
+        <img src="pisang.jpg" width="400" height="300">
+        <img src="anggur.jpg" width="400" height="300">
+    </div>
+
+    <br>
+    <button id="btn-prev">Prev</button>
+    <button id="btn-next">Next</button>
+
+    <script>
+        $(document).ready(function(){
+            var images = $("#slideshow-container img");
+            var currentIndex = 0;
+            var isAnimating = false;
+
+            images.hide();
+            images.eq(0).show();
+
+            $("#btn-next").click(function(){
+                if(isAnimating) return;
+                isAnimating = true;
+
+                images.eq(currentIndex).fadeOut(500, function(){
+                    currentIndex++;
+                    if(currentIndex >= images.length) {
+                        currentIndex = 0;
+                    }
+                    images.eq(currentIndex).fadeIn(500, function(){
+                        isAnimating = false;
+                    });
+                });
+            });
+
+            $("#btn-prev").click(function(){
+                if(isAnimating) return;
+                isAnimating = true;
+
+                images.eq(currentIndex).fadeOut(500, function(){
+                    currentIndex--;
+                    if(currentIndex < 0) {
+                        currentIndex = images.length - 1;
+                    }
+                    images.eq(currentIndex).fadeIn(500, function(){
+                        isAnimating = false;
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

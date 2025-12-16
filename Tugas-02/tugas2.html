@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas 2 To-Do List</title>
+</head>
+<body>
+
+    <input type="text" id="tugas">
+    <button onclick="tambahTugas()">Tambah</button>
+    <button onclick="hapusTerakhir()">Hapus Terakhir</button>
+
+    <ul id="list">
+    </ul>
+
+    <script>
+        function tambahTugas() {
+            var input = document.getElementById('tugas');
+            var nilaiInput = input.value;
+
+            if (nilaiInput !== "") {
+                var elemenBaru = document.createElement('li');
+                var teks = document.createTextNode(nilaiInput);
+
+                elemenBaru.appendChild(teks);
+                document.getElementById('list').appendChild(elemenBaru);
+
+                input.value = "";
+            }
+        }
+
+        function hapusTerakhir() {
+            var list = document.getElementById('list');
+            
+            if (list.hasChildNodes()) {
+                list.removeChild(list.lastChild);
+            }
+        }
+    </script>
+
+</body>
+</html>

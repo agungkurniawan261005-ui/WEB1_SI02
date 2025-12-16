@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas 1 Dynamic DOM</title>
+</head>
+<body>
+
+    <div id="biodata">
+        <img id="foto" src="apel.jpg" width="150" height="150">
+        
+        <h3>Data Diri Mahasiswa</h3>
+        <p>Nama: <span id="nama">Jaisya</span></p>
+        <p>NIM: <span id="nim">0110125049</span></p>
+        <p>Program Studi: <span id="prodi">Teknik Informatika</span></p>
+    </div>
+
+    <br>
+    <button onclick="ubahNama()">Ubah Nama</button>
+    <button onclick="ubahProdi()">Ubah Program Studi</button>
+    <button onclick="gantiFoto()">Ganti Foto</button>
+    <button onclick="sembunyikan()">Sembunyikan Biodata</button>
+    <button onclick="tampilkan()">Tampilkan Biodata</button>
+
+    <script>
+        function ubahNama() {
+            var elemenNama = document.getElementById('nama');
+            elemenNama.innerHTML = "Agung Kurniawan";
+        }
+
+        function ubahProdi() {
+            var elemenProdi = document.getElementById('prodi');
+            elemenProdi.innerHTML = "Sistem Informasi";
+        }
+
+        function gantiFoto() {
+            var elemenFoto = document.getElementById('foto');
+            elemenFoto.setAttribute('src', 'agung.jpg');
+        }
+
+        function sembunyikan() {
+            var elemenContainer = document.getElementById('biodata');
+            elemenContainer.style.display = "none";
+        }
+
+        function tampilkan() {
+            var elemenContainer = document.getElementById('biodata');
+            elemenContainer.style.display = "block";
+        }
+    </script>
+
+</body>
+</html>

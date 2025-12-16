@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas 3 jQuery FAQ</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+
+    <h3>1. Kapan dan di mana acara ini akan dilaksanakan?</h3>
+    <p>Acara akan berlangsung pada tanggal 20 Januari 2026 di Auditorium Utama Kampus, mulai pukul 08.00 hingga 15.00 WIB.</p>
+
+    <h3>2. Siapa saja yang boleh mendaftar sebagai peserta?</h3>
+    <p>Acara ini terbuka untuk umum, namun kami memprioritaskan mahasiswa aktif dari jurusan Teknik Informatika dan Sistem Informasi.</p>
+
+    <h3>3. Berapa biaya pendaftarannya dan apa saja fasilitas yang didapat?</h3>
+    <p>Biaya pendaftaran sebesar Rp25.000. Peserta akan mendapatkan E-Sertifikat, makan siang, dan seminar kit.</p>
+
+    <h3>4. Apakah sertifikat acara ini bisa digunakan untuk poin keaktifan (SKP)?</h3>
+    <p>Ya, sertifikat acara ini bernilai 5 poin SKP dan diakui resmi oleh pihak kemahasiswaan.</p>
+
+    <h3>5. Bagaimana cara mendaftar jika saya tidak memiliki rekening bank?</h3>
+    <p>Pembayaran juga dapat dilakukan melalui e-wallet (GoPay, OVO, Dana) atau pembayaran tunai di sekretariat panitia di Gedung B.</p>
+
+
+    <script>
+        $(document).ready(function(){
+            $("p").hide();
+
+            $("h3").click(function(){
+                $(this).next().toggle();
+            });
+
+            $("h3").hover(
+                function(){
+                    $(this).css("color", "blue");
+                },
+                function(){
+                    $(this).css("color", "black");
+                }
+            );
+        });
+    </script>
+
+</body>
+</html>

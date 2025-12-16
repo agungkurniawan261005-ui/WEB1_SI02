@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas 5 jQuery Chaining</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <button id="btn-notif">Tampilkan Notifikasi</button>
+    <br><br>
+
+    <div id="box-notifikasi" style="display: none; width: 300px; padding: 20px; border: 1px solid #000;">
+        Ini adalah pesan notifikasi!
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#btn-notif").click(function(){
+                $("#box-notifikasi")
+                    .css("background-color", "lightgreen")
+                    .hide()
+                    .fadeIn(1000)
+                    .slideDown(1000)
+                    .delay(3000)
+                    .slideUp(1000)
+                    .fadeOut(1000);
+            });
+        });
+    </script>
+
+</body>
+</html>
